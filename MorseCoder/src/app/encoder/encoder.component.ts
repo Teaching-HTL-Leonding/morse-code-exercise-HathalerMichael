@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { of } from 'rxjs';
 
@@ -11,7 +11,7 @@ import { of } from 'rxjs';
 })
 export class EncoderComponent {
   inputText : string  = '';
-  resultStr : string = '';
+  resultStr = signal('');
 
   morseCode : string[] = [
     /* A */ '.-',
@@ -70,9 +70,12 @@ export class EncoderComponent {
     }
     console.log(resultText);
 
-    this.resultStr = '';
+    this.resultStr.set('');
+    let tmp : string = '';
     resultText.forEach((element) => {
-      this.resultStr += element + ' ';
+
+      tmp += element + ' ';
     });
+    this.resultStr.set(tmp);
   }
 }

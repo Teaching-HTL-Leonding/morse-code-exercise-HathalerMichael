@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -43,7 +43,7 @@ export class DecoderComponent {
     /*'-'*/
   ];
   alphabet : string = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ ,.';
-  resultStr : string = '';
+  resultStr = signal('');
   isCorrect : boolean = false;
   showError : boolean = true;
 
@@ -61,20 +61,22 @@ export class DecoderComponent {
   }
 
   decode(){
-    this.resultStr = '';
+    this.resultStr.set('');
     let elements = this.inputText.split(' ');
     let correctChars = true;
+    let tmp = '';
 
     elements.forEach(element => {
       if (this.morseCode.includes(element) && correctChars){
         this.morseCode.indexOf(element);
-        this.resultStr += this.alphabet[this.morseCode.indexOf(element)];
+        tmp += this.alphabet[this.morseCode.indexOf(element)];
       }
       else{
-
         correctChars = false;
       }
+
   });
+  this.resultStr.set(tmp);
   console.log(this.resultStr);
 
 }
