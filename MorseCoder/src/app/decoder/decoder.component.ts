@@ -39,16 +39,44 @@ export class DecoderComponent {
     /* Y */ '-.--',
     /* Z */ '--..',
     '/',
-    '.',
-    '-'
+    /*'.',*/
+    /*'-'*/
   ];
+  alphabet : string = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ ,.';
+  resultStr : string = '';
+  isCorrect : boolean = false;
+  showError : boolean = true;
+
+  checkForRightChars(){
+
+
+    this.isCorrect = true;
+    this.inputText.split(' ').forEach(element => {
+      if (!this.morseCode.includes(element)){
+        this.isCorrect = false;
+        this.showError = false;
+      }
+    });
+    console.log(this.isCorrect);
+  }
 
   decode(){
+    this.resultStr = '';
     let elements = this.inputText.split(' ');
-    let resultStr : string[] = [];
+    let correctChars = true;
 
     elements.forEach(element => {
-      this.morseCode.includes(element);
-  }
+      if (this.morseCode.includes(element) && correctChars){
+        this.morseCode.indexOf(element);
+        this.resultStr += this.alphabet[this.morseCode.indexOf(element)];
+      }
+      else{
+
+        correctChars = false;
+      }
+  });
+  console.log(this.resultStr);
+
+}
 
 }

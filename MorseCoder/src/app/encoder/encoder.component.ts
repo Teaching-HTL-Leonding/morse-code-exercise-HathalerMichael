@@ -56,12 +56,13 @@ export class EncoderComponent {
       else if (letter === ' '){
         resultText.push('/');
       }
-      else if (letter === ','){
+
+      /*else if (letter === ','){
         resultText.push('-');
       }
       else if (letter === '.'){
         resultText.push('.');
-      }
+      }*/
       else{
         throw new Error('Invalid character: ' + letter);
       }

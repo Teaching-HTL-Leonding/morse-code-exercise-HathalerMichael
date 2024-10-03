@@ -1,6 +1,11 @@
-body{
-  font-family: 'MorrisRoman Black';
-  justify-content: center;
-  align-items: center;
-  display: grid;
+button{
+  width: 20%;
+  background-color: lightblue;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  margin-left:10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
