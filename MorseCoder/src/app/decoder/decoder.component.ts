@@ -42,14 +42,14 @@ export class DecoderComponent {
     /*'.',*/
     /*'-'*/
   ];
+
   alphabet : string = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ ,.';
   resultStr = signal('');
+
   isCorrect : boolean = false;
   showError : boolean = true;
 
   checkForRightChars(){
-
-
     this.isCorrect = true;
     this.inputText.split(' ').forEach(element => {
       if (!this.morseCode.includes(element)){

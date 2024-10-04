@@ -54,15 +54,10 @@ export class EncoderComponent {
         resultText.push(this.morseCode[index]);
       }
       else if (letter === ' '){
-        resultText.push('/');
-      }
-
-      /*else if (letter === ','){
-        resultText.push('-');
-      }
-      else if (letter === '.'){
-        resultText.push('.');
-      }*/
+        if (i !== 0){
+          if (this.inputText[i - 1] !== ' '){
+            resultText.push('/');
+        }}}
       else{
         throw new Error('Invalid character: ' + letter);
       }
