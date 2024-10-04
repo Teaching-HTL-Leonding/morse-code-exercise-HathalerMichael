@@ -1,0 +1,6 @@
+<h3>Decoder</h3>
+
+<input [(ngModel)]="inputText" (blur)="checkForRightChars()" type="text">
+<button (click)="decode()" [disabled]="!isCorrect">Decode</button>
+<input type="text" [(ngModel)]="resultStr" readonly>
+<input type="text" readonly [hidden]="showError" value="Invalid Characters">
